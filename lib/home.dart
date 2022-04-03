@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'card1.dart';
+import 'card2.dart';
 
-// 1
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -10,15 +10,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // 7
   int _selectedIndex = 0;
+
   // _ - приватная переменная
   // отражает какая вкладка выбрана в данный момент
 
 // 8
   static List<Widget> pages = <Widget>[
     const Card1(),
-    // TODO: Replace with Card2
+    const Card2(),
     Container(color: Colors.green),
     // TODO: Replace with Card3
     Container(color: Colors.blue)
@@ -30,6 +30,7 @@ class _HomeState extends State<Home> {
       _selectedIndex = index;
     });
   }
+
   // функция обрабатывает нажатые элементы панели
   //установка индекса элемента, который нажал пользователь
 
@@ -39,7 +40,6 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: Text(
             'Fooderlich',
-            // 2
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
@@ -47,16 +47,12 @@ class _HomeState extends State<Home> {
         body: pages[_selectedIndex],
         //4
         bottomNavigationBar: BottomNavigationBar(
-          // 5
           selectedItemColor:
               Theme.of(context).textSelectionTheme.selectionColor,
-          //10
           currentIndex: _selectedIndex,
           //сообщяет,какой элемент выделен
-          //11
           onTap: _onItemTapped,
-          //бновляется при нажатии
-          // 6
+          //обновляется при нажатии
           items: <BottomNavigationBarItem>[
             const BottomNavigationBarItem(
               icon: Icon(Icons.card_giftcard),
